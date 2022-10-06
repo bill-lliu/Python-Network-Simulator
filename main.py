@@ -115,14 +115,16 @@ def simulation(avgPktLength, rho, serviceRate, queueSize, maxTime):
                         c_arr = c_arr + 1
                         if prevDpt <= event[1]:
                             #nothing in queue
-                            currDpt = event[1] + serviceTime
+                            currDpt = event[1] + event[2]
                         else:
                             #Have to wait in queue
-                            currDpt = prevDpt + serviceTime
+                            currDpt = prevDpt + event[2]
                         dpts.append(currDpt)
                         prevDpt = currDpt
                     else:
                         c_drop = c_drop + 1
+			c_arr = c_arr + 1
+                        c_dpt = c_dpt + 1
                 elif event[0] == "Observer":
                     c_obs = c_obs + 1
                     if (c_arr == c_dpt):
