@@ -123,7 +123,7 @@ def simulation(avgPktLength, rho, serviceRate, queueSize, maxTime):
                         prevDpt = currDpt
                     else:
                         c_drop = c_drop + 1
-			c_arr = c_arr + 1
+                        c_arr = c_arr + 1
                         c_dpt = c_dpt + 1
                 elif event[0] == "Observer":
                     c_obs = c_obs + 1
